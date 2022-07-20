@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.head {
+  display: flex;
+  width: 100vw;
+  height: 81px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px black;
+}
+.head h1 {
+  padding-left: 10px;
+}
+.head button {
+  margin-right: 64px;
+  padding: 15px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
