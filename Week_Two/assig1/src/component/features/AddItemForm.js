@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 const AddItemForm = (props) => {
@@ -15,7 +15,7 @@ const AddItemForm = (props) => {
       fread.onloadend = function (event) {
         setEnteredImage(event.target.result);
       };
-      setEnteredImage(event.target.files[0]);  
+      setEnteredImage(event.target.files[0]);
     }
     if (event.target.name === "title") setEnteredTitle(event.target.value);
     if (event.target.name === "desc") setEnteredDescription(event.target.value);
@@ -24,19 +24,24 @@ const AddItemForm = (props) => {
     if (event.target.name === "price") setEnteredPrice(event.target.value);
   };
 
-  
+  //const TitlechangeHandler = () => {
+  //setEnteredTitle("");
+  //}
 
-  
   const submitHandler = (event) => {
     event.preventDefault();
+    //event.target.reset();
+    console.log(event.target.name);
 
-    props.setdatafunc(enteredImage,enteredTitle,enteredDescription,enteredAvailableSizes,enteredPrice)
+    props.setdatafunc(
+      enteredImage,
+      enteredTitle,
+      enteredDescription,
+      enteredAvailableSizes,
+      enteredPrice
+    );
     props.submitflagfunc(true);
-    
-  }
-  
-
-
+  };
   return (
     <>
       <form
@@ -96,10 +101,28 @@ const AddItemForm = (props) => {
           </div>
 
           <div className="new-expense__actions">
-            <button type="submit">Submit</button>
+            <button type="submit" name="submit">
+              Submit
+            </button>
           </div>
-        </div>
+        
+          <div>
+            <button
+              onClick={() => {
+                setEnteredTitle("");
+                setEnteredDescription("");
+                setEnteredAvailableSizes("");
+                setEnteredPrice("");
+              }}
+            >
+              clear
+            </button>
+            
+          </div>
+
+          </div>
       </form>
+      
       <img src={enteredImage} width="100" height="100" />
     </>
   );

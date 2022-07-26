@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const Card = (props) => {
-  const [wishlistNameChange,setWhislistnamechange] = useState("whislist");
-  return ( 
+  const [wishlistNameChange, setWhislistnamechange] = useState("whislist");
+  return (
     <>
       <div className="card">
         <svg
@@ -49,11 +49,21 @@ const Card = (props) => {
             <h5 className="cost">{props.item.price}</h5>
           </div>
         </div>
-        {props.btndisplay!==false?<button   onClick={()=>{props.addtowishlist(props.item)
-         setWhislistnamechange("Added to whislist")}} class="btn btn-primary">{wishlistNameChange}</button>:""}
-        
+        {props.btndisplay !== false ? (
+          <button
+            onClick={() => {
+              props.addtowishlist(props.item);
+              setWhislistnamechange("Added to whislist");
+            }}
+            class="btn btn-primary"
+          >
+            {wishlistNameChange}
+          </button>
+        ) : (
+          ""
+        )}
       </div>
-    </>  
+    </>
   );
 };
 

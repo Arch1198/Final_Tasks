@@ -1,6 +1,6 @@
 import Card from "./Card";
 var WhishList = (props) => {
-  var btn = false
+  var btn = false;
   return (
     <div
       style={{
@@ -12,12 +12,11 @@ var WhishList = (props) => {
         backgroundColor: "white",
         width: "70%",
         height: "70%",
-        overflow:"auto"
+        overflow: "auto",
       }}
-    > 
-      
+    >
       {props.wishlist.map((val, index) => {
-        return <Card  btndisplay ={btn} item={val} key={index} />;
+        return <Card btndisplay={btn} item={val} key={index} />;
       })}
     </div>
   );

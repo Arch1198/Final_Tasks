@@ -9,44 +9,33 @@ const ShowItem = (props) => {
     //console.log(obj);
     setSelectedItem(obj);
     //console.log(selectedItem);
-  }; 
+  };
 
+  useEffect(() => {
+    if (props.varsubmit === true) {
+      setProducts((prev) => {
+        return [...prev, props.submititeminform];
+      });
 
-  useEffect (()=>{ 
-    if(props.varsubmit===true){
-
-    
-    setProducts((prev)=>{
-      return[
-      ...prev,
-      props.submititeminform
-      ]
-    })
-    
-    console.log(props.submititeminform);
-    props.submitflag(false)
-  }
+      console.log(props.submititeminform);
+      props.submitflag(false);
+    }
   });
-    
 
   const AddItemToWishList = (item) => {
-    props.wishlistfunc((prev)=>{
-      return [ 
-        ...prev,
-        item 
-            ]    
+    props.wishlistfunc((prev) => {
+      return [...prev, item];
     });
-    console.log(props.wishlistitem);   
-  }
-  
+    console.log(props.wishlistitem);
+  };
 
   const DeleteItemFromProduct = (Id) => {
     setProducts((prev) => {
       return prev.filter((val, index) => {
         return Id !== index;
       });
-    });  
-  };  
+    });
+  };
   return (
     <>
       {props.deleteicon === true ? (
@@ -111,7 +100,7 @@ const ShowItem = (props) => {
               dltIcon={props.deleteiconforCard}
               uniqProductId={index}
               deleteFromscreen={DeleteItemFromProduct}
-              addtowishlist ={AddItemToWishList} 
+              addtowishlist={AddItemToWishList}
             />
           );
         })}
